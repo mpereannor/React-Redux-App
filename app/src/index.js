@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import App, {countStore}  from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+// inject the Redux Store into the app using a Provider (6 winterfell)
+    <Provider store={countStore}>
+        <App />
+    </Provider>
+, document.getElementById('root'));
