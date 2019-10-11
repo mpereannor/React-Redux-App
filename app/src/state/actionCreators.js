@@ -20,17 +20,16 @@ export function getCharacters (characters) {
 
 export const getData = () =>
 dispatch => {
-    const characterPromise = axios.get(characterApi);
+    const characterAxios = axios.get(characterApi);
     
-    characterPromise
+    characterAxios
     .then(response => {
-    
+        debugger;
         const characters = response.data.results;
         console.log('ddldld', characters);
+        dispatch(getCharacters (characters));
     })
-    .catch(error =>{
-        console.log('pickle')
-    });
-
-    dispatch(getCharacters (characters));
 }
+    // .catch(error =>{
+    //     console.log('pickle', error)
+    // });

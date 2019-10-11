@@ -3,17 +3,23 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../state/actionCreators';
 import Character from './cardCharacter';
 
-export function Catalogue ({getCharacters}) {
+export function Catalogue ({characters, getData,getCharacters}) {
 
     useEffect (() => {
         
-        getCharacters();
+        getData();
     }, [])
 
     return (
-        <div className ='catalogueDesign'>
-            {}
-            <Character/>
+        <div>
+            {
+                characters.map((character) => (
+
+                    <Character
+                    character={character}
+                    />
+                ) )
+            }
         </div>
     )
 }

@@ -16,7 +16,7 @@ export function countReducer (state= initialValueCount, action){
 }
  
 //main axios reducer
-const initialCharacter = [];
+const initialCharacter = {characters: []};
 export function characterReducer (state= initialCharacter, action) {
     switch(action.type) {
         case types.ADD_CHARACTERS:
